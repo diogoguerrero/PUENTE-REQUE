@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Estado de Puentes</title>
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería para los gráficos (desde internet) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Título y botones principales -->
+        <h1>Análisis de Desplazamiento de Puentes</h1>
+        <div class="controles">
+            <button onclick="alternarModo()">🌙 Activar Modo Oscuro</button>
+            <button onclick="exportarCSV()">📥 Guardar Historial</button>
+        </div>
+
+        <!-- Formulario para ingresar datos -->
+        <div class="formulario">
+            <div class="campo">
+                <label for="longitud">Longitud del Puente (metros)</label>
+                <input type="number" id="longitud" placeholder="Ej: 800">
+            </div>
+            <div class="campo">
+                <label for="masa">Masa por Metro (kg/m)</label>
+                <input type="number" id="masa" placeholder="Ej: 2500">
+            </div>
+            <div class="campo">
+                <label for="mantenimiento">Nivel de Mantenimiento (%)</label>
+                <input type="number" id="mantenimiento" placeholder="Ej: 90">
+            </div>
+            <button class="boton-calcular" onclick="calcular()">🧮 Calcular Estado</button>
+        </div>
+
+        <!-- Área donde se mostrarán los resultados -->
+        <div class="resultados">
+            <h2>Resultados del Análisis</h2>
+            <div id="resultado">Esperando cálculo...</div>
+            <div id="leyenda"></div>
+            
+            <!-- La imagen del puente cambiará aquí -->
+            <img id="imagenPuente" src="https://i.postimg.cc/k5hQjMdB/bridge-default.jpg" alt="Imagen del puente">
+            
+            <!-- El gráfico de barras aparecerá aquí -->
+            <div class="contenedor-grafico">
+                <canvas id="grafico"></canvas>
+            </div>
+
+            <!-- El comentario de la "inteligencia artificial" -->
+            <div class="comentario-ia">
+                <h3>Interpretación del Modelo</h3>
+                <p id="comentarioGPT">Por favor, ingrese los datos y presione calcular para obtener un análisis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript que hace toda la magia -->
+    <script src="script.js"></script>
+</body>
+</html>
